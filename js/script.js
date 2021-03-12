@@ -1,5 +1,6 @@
 // add a moment to header
 var todayTime = moment().format("MMMM Do, YYYY");
+console.log(todayTime)
 $("#currentDay").text(todayTime);
 
 // create myDay variable/array with each hour to display
@@ -58,7 +59,7 @@ var myDay = [{
     meridiem: "PM",
   },
 ];
-// console.log(myDay)
+console.log(myDay[0].time)
 
 // create form to display hours on page
 myDay.forEach(function (thisHour) {
@@ -85,6 +86,10 @@ myDay.forEach(function (thisHour) {
   var planInfo = $("<textarea>");
   hourPlan.append(planInfo);
   planInfo.attr("id", thisHour.id);
+
+
+  // determines the time of day to add or remove class
+  // NEED TO add .removeClass for all 
   if (thisHour.time < moment().format("HH")) {
     hourPlan.addClass("past")
   } else if (thisHour.time === moment().format("HH")) {
@@ -92,6 +97,7 @@ myDay.forEach(function (thisHour) {
   } else if (thisHour.time > moment().format("HH")) {
     hourPlan.addClass("future")
   }
+
 
   // creates save button
   var saveButton = $("<i class='far fa-save fa-lg'></i>")
@@ -105,11 +111,11 @@ myDay.forEach(function (thisHour) {
 
 
 // variables to link localStorage to forms
-var time = 
-var text =
+// var time = 
+// var text = 
 
-    // set local storage
-    localStorage.setItem("time", "text");
+       // set local storage
+//     localStorage.setItem("time", "text");
 
 // on save click, local storage will save text
 
