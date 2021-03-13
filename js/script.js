@@ -82,7 +82,7 @@ myDay.forEach(function (thisHour) {
 
   // creates schdeduler data
   var hourPlan = $("<div>")
-    .addClass("col-md-9 p-0");
+    .addClass("col-md-9 text-area");
   var planInfo = $("<textarea>");
   hourPlan.append(planInfo);
   planInfo.attr("id", thisHour.id);
@@ -91,16 +91,22 @@ myDay.forEach(function (thisHour) {
   // determines the time of day to add or remove class
   // NEED TO add .removeClass for all 
   if (thisHour.time < moment().format("HH")) {
-    hourPlan.addClass("past")
+    hourPlan.addClass("past");
+    hourPlan.removeClass("present");
+    hourPlan.removeClass("future")
   } else if (thisHour.time === moment().format("HH")) {
-    hourPlan.addClass("present")
+    hourPlan.addClass("present");
+    hourPlan.removeClass("past");
+    hourPlan.removeClass("future")
   } else if (thisHour.time > moment().format("HH")) {
-    hourPlan.addClass("future")
+    hourPlan.addClass("future");
+    hourPlan.removeClass("present");
+    hourPlan.removeClass("past")
   }
 
 
   // creates save button
-  var saveButton = $("<i class='far fa-save fa-lg'></i>")
+  var saveButton = $("<i class='far fa-save fa-lg' id='lock-btn'></i>")
   var savePlan = $("<button>")
     .attr({
       "class": "col-md-1 saveBtn"
@@ -111,14 +117,36 @@ myDay.forEach(function (thisHour) {
 
 
 // variables to link localStorage to forms
-// var time = 
-// var text = 
+// var time = "time" + getHour
+// var text = $()
 
-       // set local storage
+// set local storage
 //     localStorage.setItem("time", "text");
 
 // on save click, local storage will save text
+$("#lock-btn").on("click", function (e) {
+  e.preventDefault();
+  // set item needs to be "time" + each hour connected to the click
+  localStorage.setItem("time9", "this works")
+  localStorage.setItem("time10", "this works")
+  localStorage.setItem("time11", "this works")
+  localStorage.setItem("time12", "this works")
+  localStorage.setItem("time13", "this works")
+  localStorage.setItem("time14", "this works")
+  localStorage.setItem("time15", "this works")
+  localStorage.setItem("time16", "this works")
+  localStorage.setItem("time17", "this works")
+
+  console.log(localStorage.getItem("time9"))
+
+  // console.log("click")
+});
+
 
 // when page is refreshed, tasks will remain on screen from local storage
+// function populatePlan() {
+  // console.log(localStorage.getItem("time9"))
+// 
+$("text-area").val(localStorage.getItem("time9"))
 
 //when you clear the text, it deletes from local storage
