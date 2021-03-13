@@ -1,6 +1,4 @@
-# 05 Third-Party APIs: Work Day Scheduler
-
-## Acceptance Criteria
+# Work Day Scheduler
 
 ```
 
@@ -26,6 +24,8 @@ THEN the saved events persist
 ## Screenshot
 
 <img src="assets/images/Screen Shot 2021-03-12 at 11.20.08 PM.png">
+
+<>
 
 ## Link to Planner
 

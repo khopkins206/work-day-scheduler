@@ -75,7 +75,7 @@ myDay.forEach(function (thisHour) {
   var hourField = $("<div>")
     .text(`${thisHour.hour}${thisHour.meridiem}`)
     .attr({
-      "class": "col-md-2 hour"
+      "class": "col-md-1 hour"
     });
 
   // console.log(hourField)
@@ -126,8 +126,8 @@ myDay.forEach(function (thisHour) {
 // console.log(id)
  
 // on save click, local storage will save text
-$(".saveBtn").on("click", function () {
-  // event.preventDefault();
+$(".saveBtn").on("click", function (event) {
+  event.preventDefault();
   // set item needs to be "time" + each hour connected to the click
   var id = $(this).parent().children('.text-area').children("textarea").attr("id")
   var note = $(this).siblings('.text-area').children('textarea').val()
@@ -151,3 +151,16 @@ $("textarea#8").val(localStorage.getItem("8"))
 
 
 //when you clear the text, it deletes from local storage
+// var deleteButton = document.querySelector("#delete-button")
+//   console.log(deleteButton)
+  
+// var deletePlan = $("#delete-button")
+//   .attr({
+//   "class": "col-md-1 delBtn"
+//   });
+
+
+// $(".saveBtn").on("click", function (event) {
+//   event.preventDefault();
+//   localStorage.removeItem("0")
+// })
