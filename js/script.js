@@ -90,7 +90,7 @@ myDay.forEach(function (thisHour) {
 
   // determines the time of day to add or remove class
   // NEED TO add .removeClass for all 
-  if (thisHour.time < moment().format("HH")) {
+  if (parseInt(thisHour.time) < moment().hour()) {
     hourPlan.addClass("past");
     hourPlan.removeClass("present");
     hourPlan.removeClass("future")
@@ -123,30 +123,31 @@ myDay.forEach(function (thisHour) {
 // set local storage
 //     localStorage.setItem("time", "text");
 
+// console.log(id)
+ 
 // on save click, local storage will save text
-$("#lock-btn").on("click", function (e) {
-  e.preventDefault();
+$(".saveBtn").on("click", function () {
+  // event.preventDefault();
   // set item needs to be "time" + each hour connected to the click
-  localStorage.setItem("time9", "this works")
-  localStorage.setItem("time10", "this works")
-  localStorage.setItem("time11", "this works")
-  localStorage.setItem("time12", "this works")
-  localStorage.setItem("time13", "this works")
-  localStorage.setItem("time14", "this works")
-  localStorage.setItem("time15", "this works")
-  localStorage.setItem("time16", "this works")
-  localStorage.setItem("time17", "this works")
-
-  console.log(localStorage.getItem("time9"))
-
-  // console.log("click")
+  var id = $(this).parent().children('.text-area').children("textarea").attr("id")
+  var note = $(this).siblings('.text-area').children('textarea').val()
+  
+  localStorage.setItem(id, note)
+  
 });
 
-
 // when page is refreshed, tasks will remain on screen from local storage
-// function populatePlan() {
-  // console.log(localStorage.getItem("time9"))
-// 
-$("text-area").val(localStorage.getItem("time9"))
+
+$("textarea#0").val(localStorage.getItem("0"))
+$("textarea#1").val(localStorage.getItem("1"))
+$("textarea#2").val(localStorage.getItem("2"))
+$("textarea#3").val(localStorage.getItem("3"))
+$("textarea#4").val(localStorage.getItem("4"))
+$("textarea#5").val(localStorage.getItem("5"))
+$("textarea#6").val(localStorage.getItem("6"))
+$("textarea#7").val(localStorage.getItem("7"))
+$("textarea#8").val(localStorage.getItem("8"))
+
+
 
 //when you clear the text, it deletes from local storage
